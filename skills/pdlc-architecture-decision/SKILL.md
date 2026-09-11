@@ -31,7 +31,7 @@ The decision engine that picks the target architecture and shipping approach. Ca
 
 4. **Select and validate shipping.** Choose a shipping adapter from `adapters/shipping/` whose `requires` block evaluates true against the chosen architecture's manifest and the project facts. If none holds, propose a shipping approach. Record the pairing. When more than one shipping adapter is valid, select the lightest strategy that satisfies the opportunity's risk profile; binding a heavier one (for example shadow-strangler onto a cleanly revertible Class A target) is allowed only with explicit justification in the ADR, and is flagged as over-heavy in the gate summary.
 
-5. **Cost-ceiling check.** Key on the manifest field: if the chosen architecture declares `cost_ceiling_required: true` (which MUST be the case whenever `capabilities` includes `agentic`; treat any disagreement between the two as a manifest defect and refuse), require a cost-ceiling guardrail in the project's `guardrails.yaml`: an absolute EUR cap per 24h window, set per tenant and per project. Refuse to bind without it.
+5. **Cost-ceiling check.** Key on the manifest field: if the chosen architecture declares `cost_ceiling_required: true` (which MUST be the case whenever `capabilities` includes `agentic`; treat any disagreement between the two as a manifest defect and refuse), require a cost-ceiling guardrail in the project's `guardrails.yaml`: an absolute currency cap per 24h window, set per tenant and per project. Refuse to bind without it.
 
 6. **Emit the ADR.** Write an Architecture Decision Record to the project's `c4/` (or `product/`) folder, citing the internal and external evidence used and the rejected alternatives. Append a `learn-log` entry with `topic: architecture-decision`.
 

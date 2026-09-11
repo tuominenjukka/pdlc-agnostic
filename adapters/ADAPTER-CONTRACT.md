@@ -10,7 +10,7 @@ An adapter is a manifest plus a set of operations. Most variation is data in the
 |---|---|---|
 | `adapter_id` | yes | Stable id, kebab-case. Written to every build-log and deployment-log row. |
 | `version` | yes | Semver. Bumping it is an adapter update (see `pdlc-rediscover`). |
-| `capabilities` | yes | Set used for selection, e.g. `multi-tenant`, `eu-residency`, `deterministic-workflow`, `agentic`, `real-time`, `hierarchical-memory`. |
+| `capabilities` | yes | Set used for selection, e.g. `multi-tenant`, `data-residency`, `deterministic-workflow`, `agentic`, `real-time`, `hierarchical-memory`. |
 | `discovery_artifacts` | yes | Artifact set Discovery must produce, e.g. `pr-faq`, `c4`. |
 | `build_artifact_kind` | yes | What Deliver produces, e.g. `workflow+image`, `agent-definition+tools`. |
 | `reference_architecture` | yes | Path to a reusable infrastructure blueprint (components and wiring). See "Reference architecture" below. |

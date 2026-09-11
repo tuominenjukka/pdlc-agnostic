@@ -9,7 +9,7 @@ adapter_id: agentic-harness-selfhosted
 version: 0.1.0
 capabilities:
   - multi-tenant
-  - eu-residency
+  - data-residency
   - agentic
   - hierarchical-memory      # company, project, user
   - self-hosted-llm
@@ -20,7 +20,7 @@ metrics_sources: [metrics-db, prometheus, llm-tracing]   # example sources; bind
 guardrail_catalog:
   task_completion_rate_drop_pct: { red_above: 15, yellow_above: 7 }
   human_intervention_rate_pct:   { red_above: 25, yellow_above: 12 }
-  cost_per_task_eur:             { red_above: 0.50, yellow_above: 0.25 }   # tune during hardening
+  cost_per_task:                 { red_above: 0.50, yellow_above: 0.25 }   # in the project's currency; illustrative, tune during hardening
   outcome_correctness_vs_incumbent_pct: { red_below: 90, yellow_below: 95 }
 rollback_constraints:
   non_revertible: true          # cannot rollout-undo to a deterministic workflow
@@ -44,4 +44,4 @@ The build artifact is an agent with tools, memory, and a goal, not a workflow gr
 ## Notes for building
 
 - The `task-acceptance-suite` discovery artifact is mandatory for this adapter because `pdlc-coexist` uses it as the equivalence oracle against the incumbent.
-- Memory layers map to the existing multi-tier memory work (company, project, user), with the source-of-truth index pattern.
+- The three memory layers (company, project, user) each need a source-of-truth index so agents can tell canonical facts from cached ones.

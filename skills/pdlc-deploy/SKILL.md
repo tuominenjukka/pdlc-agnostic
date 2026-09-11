@@ -84,7 +84,7 @@ guardrails:
   # cap per 24h window, set per tenant and per project. Evaluated in every stage
   # including shadow. On red breach, pause new task intake for the affected scope
   # and open a gate; agentic targets cannot rely on rollback as the brake.
-  cost_ceiling_eur_24h:
+  cost_ceiling_24h:
     per_tenant_cap: null      # MUST be set when the bound adapter is agentic
     per_project_cap: null
 rollback:
@@ -95,7 +95,7 @@ notifications:
   on_yellow: notify_only
 ```
 
-The effective guardrail set is the **universal core set merged with the bound architecture adapter's `guardrail_catalog`**. On key collision, the adapter catalog value applies (the architecture knows its own thresholds); the universal core key cannot be dropped, only re-thresholded. The cost ceiling is mandatory and cannot be removed when the adapter declares `cost_ceiling_required: true`; refuse to plan a wave for such an adapter if `cost_ceiling_eur_24h` caps are unset.
+The effective guardrail set is the **universal core set merged with the bound architecture adapter's `guardrail_catalog`**. On key collision, the adapter catalog value applies (the architecture knows its own thresholds); the universal core key cannot be dropped, only re-thresholded. The cost ceiling is mandatory and cannot be removed when the adapter declares `cost_ceiling_required: true`; refuse to plan a wave for such an adapter if `cost_ceiling_24h` caps are unset.
 
 ## Operations
 
@@ -158,7 +158,7 @@ Evaluate guardrails at the end of an observation window.
 1. Read the wave's planning row.
 2. Pull current metrics for the cohort over the observation window via `adapter.fetch_metrics(window=observation_window)`: the universal core metrics plus the adapter catalog metrics. Pull average `sentiment_score` from `feedback-log` directly (`pdlc-log query feedback-log --wave-id {wave_id}`).
 3. Append a `user-behavior-log` entry per adapter metric with `wave_id` set, so the evolve-agent has a durable trace. Do NOT mirror sentiment into `user-behavior-log`; the canonical record is the `feedback-log` rows.
-4. Compute `cost_multiple` and, for agentic adapters, the `cost_ceiling_eur_24h` utilization (max across the cohort, per tenant and per project).
+4. Compute `cost_multiple` and, for agentic adapters, the `cost_ceiling_24h` utilization (max across the cohort, per tenant and per project).
 5. Compare each guardrail (merged set) against baseline plus threshold: each returns `green` (within yellow_above), `yellow` (between yellow_above and red_above), or `red` (above red_above).
 6. Overall decision: `red` if any red, `yellow` if any yellow, else `green`.
 7. If the adapter reports a per-recipient deploy pause, sample it and flag `observed_pause_seconds_p95` above the adapter's declared threshold.

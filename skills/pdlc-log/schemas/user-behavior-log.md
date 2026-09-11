@@ -44,7 +44,7 @@ pdlc-log append user-behavior-log {
   metric_kind: "cost",
   metric_name: "eur_spend_24h",
   value: 4.21,
-  unit: "EUR",
+  unit: "USD",
   window_start: "2026-05-18T00:00:00Z",
   window_end: "2026-05-19T00:00:00Z",
   cohort_ref: "cohort://lead-routing-suite-1.2.0-wave1",

@@ -4,6 +4,8 @@ All notable changes to this project are documented here. The format follows Keep
 
 ## Unreleased
 
+- Generalized the remaining locale hints: `eu-residency` capability is now `data-residency`, cost guardrail keys are currency-neutral (`cost_per_task`, `cost_ceiling_24h`).
+
 ## 0.6.0 - 2026-09-10
 
 First public release under the MIT License.

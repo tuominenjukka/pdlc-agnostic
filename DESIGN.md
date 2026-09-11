@@ -100,7 +100,7 @@ Exit: after the final wave is green for its window, clear `.pdlc/incumbent.txt`.
 
 ## 10. Guardrails
 
-`observe` evaluates a universal core set (a latency-equivalent, an error-rate-equivalent, a cost-multiple, a success-rate, sentiment) merged with the adapter's catalog. **[v2]** a cost ceiling is mandatory, not optional, for any agentic-harness adapter, because autonomous agents loop and consume tokens without a fixed workflow bound. **[v2.1]** The ceiling's shape: an absolute EUR cap per 24h window, set per tenant and per project, evaluated by `observe` in every stage including shadow. On red breach the core pauses new task intake for the affected scope and opens a gate; agentic targets cannot rely on `rollback` as the brake.
+`observe` evaluates a universal core set (a latency-equivalent, an error-rate-equivalent, a cost-multiple, a success-rate, sentiment) merged with the adapter's catalog. **[v2]** a cost ceiling is mandatory, not optional, for any agentic-harness adapter, because autonomous agents loop and consume tokens without a fixed workflow bound. **[v2.1]** The ceiling's shape: an absolute currency cap per 24h window, set per tenant and per project, evaluated by `observe` in every stage including shadow. On red breach the core pauses new task intake for the affected scope and opens a gate; agentic targets cannot rely on `rollback` as the brake.
 
 ## 11. Logs
 
