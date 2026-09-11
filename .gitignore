@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+# project state created when the plugin is used inside a target repo, never in this repo
+.pdlc/

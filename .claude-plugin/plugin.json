@@ -1,0 +1,25 @@
+{
+  "name": "pdlc-agnostic",
+  "version": "0.6.0",
+  "description": "Architecture-agnostic PDLC meta-builder for Claude Code and Claude Cowork. One Discover, Deliver, Evolve process spine with human-in-the-loop gates, append-only logs, a build-time CTO reviewer agent, and pluggable Target and Shipping adapters. Supports provisioning, rediscovery, fork-with-lineage, and class-aware migration including shadow or strangler coexistence and a decommission gate.",
+  "author": {
+    "name": "Jukka Tuominen",
+    "url": "https://github.com/tuominenjukka"
+  },
+  "homepage": "https://github.com/tuominenjukka/pdlc-agnostic",
+  "repository": "https://github.com/tuominenjukka/pdlc-agnostic",
+  "license": "MIT",
+  "keywords": [
+    "pdlc",
+    "product-development",
+    "meta-builder",
+    "hitl",
+    "agentic-automation",
+    "multi-tenant",
+    "migration",
+    "adapter",
+    "cto-agent",
+    "claude-code",
+    "cowork"
+  ]
+}

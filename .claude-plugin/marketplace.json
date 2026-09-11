@@ -1,0 +1,21 @@
+{
+  "name": "pdlc-agnostic",
+  "owner": {
+    "name": "Jukka Tuominen",
+    "url": "https://github.com/tuominenjukka"
+  },
+  "metadata": {
+    "description": "Marketplace for the pdlc-agnostic plugin: an architecture-agnostic Product Development Lifecycle meta-builder for Claude Code and Claude Cowork.",
+    "version": "0.6.0"
+  },
+  "plugins": [
+    {
+      "name": "pdlc-agnostic",
+      "source": "./",
+      "description": "Architecture-agnostic PDLC meta-builder: Discover, Deliver, Evolve spine with HITL gates, append-only logs, a build-time CTO reviewer, and pluggable Target and Shipping adapters.",
+      "version": "0.6.0",
+      "category": "engineering",
+      "tags": ["pdlc", "meta-builder", "hitl", "adapter", "cto-agent"]
+    }
+  ]
+}
